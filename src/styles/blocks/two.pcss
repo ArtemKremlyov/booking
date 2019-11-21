@@ -1,9 +1,112 @@
-.icon-bg {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  background: svg-load('github.svg', fill=$text-color, width=100%, height=100%);
-  &:hover {
-    background: svg-load('github.svg', fill=#55ddcc, width=100%, height=100%);
+.description{
+  height: 100%;
+  padding: 64px 30px;
+  background-color: #F3F3F3;;
+}
+.description__info{
+  display: flex;
+  margin-bottom: 63px;
+}
+.description__info-title{
+ font-family: Roboto;
+ font-style: normal;
+ font-weight: 500;
+ font-size: 21px;
+ line-height: 26px;
+ margin-bottom: 23px;
+}
+.desctiption__info-author{
+ font-family: Roboto;
+ font-style: normal;
+ font-weight: normal;
+ font-size: 15px;
+ color: #7D8888;
+
+   span{
+      color: #417505;
+   }
+}
+.description__info-year{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  color: #7D8888;
+  margin-bottom: 23px;
+ 
+    span{
+       color: black;
+    }
+ }
+.description__info-rating{
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.description__info-number{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  color: #7D8888;
+
+    span{
+      color: black;
+    }
+}
+.description__info-list{
+  display: flex;
+}
+.description__info-item{
+  width: 24px;
+  height: 24px;
+  background: svg-load('star.svg', fill=black, width=100%, height=100%) no-repeat;
+  margin-right: 6px;
+}
+.description__info-tools{
+  display: flex;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 17px;
+  color: #C7CAD2;
+}
+.description__info-favorites{
+  display: flex;
+  margin-right: 23px;
+
+  &:before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    margin-right: 15px;
+    background: svg-load('favorite.svg', fill=#C7CAD2, width=20px, height=20px) no-repeat;
   }
+}
+.description__info-share{
+  display: flex;
+  margin-right: 23px;
+
+  &:before{
+    content: "";
+    height: 20px;
+    width: 20px;
+    margin-right: 15px;
+    background: svg-load('share.svg', fill=#C7CAD2, width=20px, height=20px) no-repeat;
+  }
+}
+.description__content-title{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  margin-bottom: 16px;
+}
+.description__content-text{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 24px;
 }

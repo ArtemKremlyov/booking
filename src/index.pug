@@ -1,15 +1,60 @@
 include ./mixins.pug
 
+
 <!DOCTYPE html>
-html(lang="en")
+html(lang="en") 
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
-    title Portfolio | main page
+    script(src="https://unpkg.com/vue-router/dist/vue-router.js")
+    script(src="https://unpkg.com/axios/dist/axios.min.js")
+
+    title Book searhc service
   body
     .wrapper
       .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+        #app
+          .main
+            .main__left
+                .main__left-pic
+                .main__left-title Библиотека
+            .main__right
+                form(id="book-search" @submit.prevent="search").toolbar
+                    button.toolbar__favorites
+                        .toolbar__favorites-icon
+                    .toolbar__search
+                        input(type="text" placeholder="Поиск" v-model="searchTerm").toolbar__search-input
+                        button(type="submit").toolbar__search-button
+                            .toolbar__search-icon
+                ul.main__list
+                  li.main__item(v-for="(book,index) in searchResults.items" :key="index" @click="selectTarget(index)" :class="{selected: isSelected===index}")
+                    .main__item-content
+                      .main__item-img
+                        img(:src="'http://books.google.com/books/content?id=' + book.id + '&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'")
+                      .main__item-info
+                        .description__info-rating
+                          .description__info-stars
+                              ul.description__info-list
+                                  li.description__info-item
+                                  li.description__info-item
+                                  li.description__info-item
+                                  li.description__info-item
+                                  li.description__info-item   
+                        .main__item-title {{book.volumeInfo.title}}
+                        .main__item-desc {{book.volumeInfo.description}}
+                  hr.main__item-devider
+                  .pagination  
+                    ul.pagination__list
+                      li.pagination__item.prev «
+                      li.pagination__item(v-for="p in pagination.pages" @click.prevent="setPage(p)")
+                      li.pagination__item.next »                    
+          include components/full-desc.pug
+          router-link(to="/foo") Перейти к Foo
+          
+        
+        
+        
+        //+image('content/Bitmap.png', 'user-pic')
+        //+icon('Bitmap', 'link-class')
+        //.icon-bg

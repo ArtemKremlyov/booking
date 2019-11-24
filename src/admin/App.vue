@@ -7,8 +7,8 @@
 export default {
   components:{
       appMain: () => import("components/main-app"),
-      
 
+      
   }
 
 }
